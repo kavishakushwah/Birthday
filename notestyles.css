@@ -1,0 +1,75 @@
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px; /* Adjust the size of the logo image */
+    height: 50px; /* Adjust the size of the logo image */
+    margin-right: 10px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://getwallpapers.com/wallpaper/full/9/8/b/931159-friendship-wallpaper-1920x1200-samsung-galaxy.jpg'); /* Replace 'background.jpg' with the path to your background image */
+    background-size: cover; /* Ensure the background image covers the entire viewport */
+    background-position: center; /* Center the background image */
+    margin: 0px;
+    padding: 0px;
+    background-position: 150px;
+}
+
+.logo h1 {
+    font-size: 24px; /* Adjust the font size of the small name */
+    margin: 0;
+}
+
+header {
+    background-color: rgba(76, 175, 80, 0);
+    color: brown;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left img {
+    width: 50px; /* Adjust the size of the circle photo */
+    height: 50px; /* Adjust the size of the circle photo */
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.name{
+    color: blanchedalmond;
+}
+
+.right span {
+    font-weight: bold;
+}
+
+.middle nav a {
+    color: brown;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.notes-content {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.beautiful-font {
+    font-family: 'Dancing Script', cursive;
+}
+
+footer {
+    background-color: rgba(76, 175, 80, 0);
+    color: brown;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

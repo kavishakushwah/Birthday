@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gallery2.css">
+    <title>Photo Gallery</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img style="border-radius: 100%;" class="logo-img" src="logo.jpg" alt="Logo Image">
+            <h1 class="name">Mannu</h1>
+        </div>
+        <div class="middle">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="gallery2.html">Memories</a>
+                <a href="notes.html">Note</a>
+                <a href="dates.html">Dates</a>
+            </nav>
+        </div>
+        <div class="right">
+            <span id="current-date"></span>
+        </div>
+    </header>
+    <section class="gallery-container">
+        <!-- Gallery items will be dynamically added here -->
+    </section>
+    <footer>
+        <p>With love, Anurag</p>
+    </footer>
+    <script>
+        // Display the current date in the header
+        var currentDate = new Date();
+        var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("current-date").innerHTML = currentDate.toLocaleDateString('en-US', dateOptions);
+
+        // Function to create gallery items
+        function createGalleryItems() {
+            const galleryContainer = document.querySelector('.gallery-container');
+
+            // Assuming you have 10 photos named as photo1.jpg, photo2.jpg, ..., photo10.jpg
+            const numberOfPhotos = 44;
+
+            for (let i = 1; i <= numberOfPhotos; i++) {
+                const galleryItem = document.createElement('div');
+                galleryItem.classList.add('gallery-item');
+
+                const photo = document.createElement('img');
+                photo.src = `image/img${i}.jpg`;
+                photo.alt = `Photo ${i}`;
+
+                galleryItem.appendChild(photo);
+                galleryContainer.appendChild(galleryItem);
+            }
+        }
+
+        // Call the function to create gallery items when the page is loaded
+        document.addEventListener('DOMContentLoaded', createGalleryItems);
+    </script>
+</body>
+</html>

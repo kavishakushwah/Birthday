@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gallerystyles.css">
+    <link rel="stylesheet" href="styles.css"
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img style="border-radius: 100%;" class="logo-img" src="logo.jpg" alt="Logo Image">
+            <h1 class="name">Mannu</h1>
+        </div>
+        <div class="middle">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="gallery2.html">Memories</a>
+                <a href="notes.html">Note</a>
+                <a href="dates.html">Dates</a>
+            </nav>
+        </div>
+        <div class="right">
+            <span id="current-date"></span>
+        </div>
+    </header>
+    <section class="gallery-container" id="galleryContainer">
+        <!-- Gallery items will be dynamically added here -->
+    </section>
+    <footer>
+        <p>With love, Anurag</p>
+    </footer>
+
+    <script>
+        // Display the current date in the header
+        var currentDate = new Date();
+        var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("current-date").innerHTML = currentDate.toLocaleDateString('en-US', dateOptions);
+
+        
+        // Function to create a random number between min and max (inclusive)
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to create gallery items with random positions and sizes
+        function createGalleryItems() {
+            const galleryContainer = document.getElementById('galleryContainer');
+            const numberOfPhotos = 11; // Adjust the number of photos as needed
+
+            for (let i = 1; i <= numberOfPhotos; i++) {
+                const galleryItem = document.createElement('div');
+                galleryItem.classList.add('gallery-item');
+                galleryItem.onclick = function() {
+                    toggleImageSize(this);
+                };
+
+                const photo = document.createElement('img');
+                photo.src = `images/photo${i}.jpg`;
+                photo.alt = `Birthday Photo ${i}`;
+
+                galleryItem.appendChild(photo);
+                galleryContainer.appendChild(galleryItem);
+
+                photo.onclick = function () {
+                    toggleImageSize(galleryItem);
+                };
+
+                // Set random position and size
+                const left = getRandomNumber(0, window.innerWidth - 250) + 'px';
+                const top = getRandomNumber(0, window.innerHeight - 250) + 'px';
+                const width = getRandomNumber(150, 300) + 'px';
+                const height = 'auto';
+
+                galleryItem.style.left = left;
+                galleryItem.style.top = top;
+                galleryItem.style.width = width;
+                galleryItem.style.height = height;
+            }
+        }
+
+        // Call the function to create gallery items when the page is loaded
+        document.addEventListener('DOMContentLoaded', createGalleryItems);
+
+        // Function to toggle image size
+        function toggleImageSize(element) {
+            element.classList.toggle('enlarged');
+        }
+
+    </script>
+</body>
+</html>
